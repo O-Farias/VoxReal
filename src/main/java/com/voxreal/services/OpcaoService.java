@@ -26,7 +26,7 @@ public class OpcaoService {
         Votacao votacao = votacaoRepository.findById(votacaoId)
                 .orElseThrow(() -> new RuntimeException("Votação não encontrada."));
         Opcao opcao = new Opcao();
-        opcao.setDescricao(descricao);
+        opcao.setDescricao(descricao); // Verifica que o método existe no modelo Opcao.
         opcao.setVotacao(votacao);
         return opcaoRepository.save(opcao);
     }
@@ -34,7 +34,12 @@ public class OpcaoService {
     public Opcao votarEmOpcao(Long opcaoId) {
         Opcao opcao = opcaoRepository.findById(opcaoId)
                 .orElseThrow(() -> new RuntimeException("Opção não encontrada."));
-        opcao.incrementarVotos();
+        opcao.incrementarVotos(); // Incrementa os votos na opção
         return opcaoRepository.save(opcao);
+    }
+
+    // Novo método adicionado
+    public Opcao adicionarOpcao(Long votacaoId, String descricao) {
+        return criarOpcao(votacaoId, descricao);
     }
 }
