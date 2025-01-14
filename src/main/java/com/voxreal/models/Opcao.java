@@ -9,7 +9,7 @@ public class Opcao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String descricao; 
 
     private int votos;
 
@@ -26,20 +26,19 @@ public class Opcao {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public int getVotos() {
         return votos;
     }
 
-    public void setVotos(int votos) {
-        this.votos = votos;
+    public void incrementarVotos() { 
     }
 
     public Votacao getVotacao() {
@@ -48,9 +47,5 @@ public class Opcao {
 
     public void setVotacao(Votacao votacao) {
         this.votacao = votacao;
-    }
-
-    public void incrementarVoto() {
-        this.votos++;
     }
 }
